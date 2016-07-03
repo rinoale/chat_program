@@ -32,7 +32,7 @@
         width: 65%;
       }
 
-      .chat-log-print {
+      .chat-log {
         height: 90%;
         width: 100%;
       }
@@ -53,19 +53,22 @@
         will be user lists
       </div>
       <div class="section chat-area">
-        <div class="chat-log">
-          <div class="chat-log-print">
-            chat logs
-          </div>
+        <div class="chat-log" id="chat-log-print">
         </div>
         <div class="chat-input">
-          <ui-input type="text" class="chat-text">
+          <ui-input type="text" class="chat-text" id="chat-text">
           </ui-input>
-          <ui-button class="chat-send">
+          <ui-button class="chat-send" id="chat-send-button">
               send
+          </ui-button>
+          <ui-button class="chat-quit" id="chat-quit-button">
+              quit
           </ui-button>
         </div>
       </div>
     </main-dock>  
   </body>
+  <script>
+    require('./renderer.js')
+  </script>
 </html>
