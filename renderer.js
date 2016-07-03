@@ -11,7 +11,7 @@ const quitButton = document.getElementById('chat-quit-button')
 var client = new net.Socket();
 client.connect(1337, server_address, function() {
 	console.log('Connected');
-	client.write('Hello, server! Love, Client.\r\n');
+	client.write('Hello, server! Love, Client.');
 });
 
 client.on('data', function(data) {
@@ -27,8 +27,9 @@ client.on('close', function() {
 });
 
 chatSendButton.addEventListener("click", function() {
-    var chatText = document.getElementById('chat-text').value;
-    client.write(chatText+'\r\n');
+    var chatTextElement = document.getElementById('chat-text');
+    client.write(chatTextElement.value);
+    chatTextElement.value = '';
 });
 
 quitButton.addEventListener("click", function() {
