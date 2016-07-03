@@ -1,0 +1,15 @@
+{
+  "name": "chat_program",
+  "version": "1.0.0",
+  "description": "simple chat program",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "rinoale",
+  "license": "ISC",
+  "dependencies": {
+    "editor-framework": "^0.6.1",
+    "electron-prebuilt": "^1.2.5"
+  }
+}
