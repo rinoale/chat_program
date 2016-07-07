@@ -6,12 +6,30 @@ const chatLogPrint = document.getElementById('chat-log-print')
 
 const chatSendButton = document.getElementById('chat-send-button')
 
+const chatText = document.getElementById('chat-text');
+
 const quitButton = document.getElementById('chat-quit-button')
 
-var client = new net.Socket();
+function UserSocket(name) {
+    this.name = name;
+}
+
+UserSocket.prototype = new net.Socket();
+
+UserSocket.prototype.sendUserInfo = function () {
+    this.write('{"operation": "userinfo", "body": "' + this.name + '"}');
+};
+
+UserSocket.prototype.sendMessage = function (message) {
+    this.write('{"operation": "message", "body": "' + message + '"}');
+}
+
+var client = new UserSocket('gbsong');
+
 client.connect(1337, server_address, function() {
 	console.log('Connected');
-	client.write('Hello, server! Love, Client.');
+	// client.sendMessage('Hello, server! Love, Client.');
+    client.sendUserInfo();
 });
 
 client.on('data', function(data) {
@@ -28,7 +46,7 @@ client.on('close', function() {
 
 chatSendButton.addEventListener("click", function() {
     var chatTextElement = document.getElementById('chat-text');
-    client.write(chatTextElement.value);
+    client.sendMessage(chatTextElement.value);
     chatTextElement.value = '';
 });
 
