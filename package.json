@@ -2,7 +2,7 @@
   "name": "chat_program",
   "version": "1.0.0",
   "description": "simple chat program",
-  "main": "main.js",
+  "main": "electron_quick.js",
   "scripts": {
     "start": "electron ."
   },

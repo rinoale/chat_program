@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>Main Window</title>
+    <meta charset="utf-8">
+
+    <style>
+      #mainDock {
+        position: relative;
+      }
+      
+      .nav {
+        line-height:30px;
+        height:300px;
+        width:100px;
+        float:left;
+        padding:5px; 
+      }
+
+      .section {
+        width:350px;
+        float:left;
+        padding:10px; 
+      }
+
+      .list-menu {
+        height: 70%;
+        width: 30%;
+      }
+
+      .chat-area {
+        height: 70%;
+        width: 65%;
+      }
+
+      .chat-log {
+        height: 90%;
+        width: 100%;
+      }
+
+      .chat-input {
+        width: 100%;
+      }
+
+      .chat-text {
+        width: 80%;
+      }
+    </style>
+  </head>
+
+  <body class="">
+    <main-dock class="">
+      <div class="nav list-menu">
+        will be user lists
+      </div>
+      <div class="section chat-area">
+        <div class="chat-log" id="chat-log-print">
+        </div>
+        <div class="chat-input">
+          <input type="text" class="chat-text" id="chat-text">
+          </input>
+          <button class="chat-send" id="chat-send-button">
+              send
+          </button>
+          <button class="chat-quit" id="chat-quit-button">
+              quit
+          </button>
+        </div>
+      </div>
+    </main-dock>  
+  </body>
+  <script>
+    require('./renderer.js')
+  </script>
+</html>
