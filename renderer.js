@@ -34,9 +34,17 @@ client.connect(1337, server_address, function() {
 
 client.on('data', function(data) {
 	console.log('Received: ' + data);
-    prevLog = chatLogPrint.innerText;
-    prevLog = prevLog + data;
-    chatLogPrint.innerText = prevLog;
+    var div_node = document.createElement('div');
+    var a_node = document.createElement('a');
+    var a_node_attr = document.createAttribute('href');
+    var text_node = document.createTextNode(data);
+    
+    // a_node_attr.value = '#';
+    // a_node.setAttributeNode(a_node_attr);
+    a_node.appendChild(text_node);
+    div_node.appendChild(a_node);
+    chatLogPrint.appendChild(div_node);
+    chatLogPrint.scrollTop = chatLogPrint.scrollHeight;
 	// client.destroy(); // kill client after server's response
 });
 
