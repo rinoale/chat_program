@@ -1,38 +1,41 @@
-#mainDock {
-    position: relative;
+.dark-theme {
+    background-color: #282828;
 }
 
 .nav {
+    color:#999999;
     line-height:30px;
-    height:300px;
-    width:100px;
+    height:80%;
+    width:20%;
     float:left;
-    padding:5px; 
 }
 
 .section {
-    width:350px;
+    background-color: #2d2d2d;
+    color:#999999;
+    height:80%;
+    width:80%;
     float:left;
-    padding:10px; 
+}
+
+.bottom {
+    background-color:#333333;
+    clear:both;
+    height:20%;
 }
 
 .list-menu {
-    height: 70%;
-    width: 30%;
 }
 
 .chat-area {
-    height: 70%;
-    width: 65%;
 }
 
 .chat-log {
     height: 90%;
-    width: 100%;
+    padding:10px;
 }
 
 .chat-input {
-    width: 100%;
 }
 
 .chat-text {
