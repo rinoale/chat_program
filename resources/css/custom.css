@@ -33,7 +33,7 @@
 .chat-log {
     height: 90%;
     overflow-y: auto;
-    padding:10px;
+    margin:10px;
 }
 
 .chat-input {
