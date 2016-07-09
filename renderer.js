@@ -2,6 +2,8 @@ var net = require('net');
 
 var Message = require('./message.js');
 
+var ChatNode = require('./chatNode.js');
+
 var server_address = '192.168.33.11';
 
 const chatLogPrint = document.getElementById('chat-log-print')
@@ -13,6 +15,8 @@ const chatText = document.getElementById('chat-text');
 const quitButton = document.getElementById('chat-quit-button')
 
 var message = new Message();
+
+var chatNode = new ChatNode();
 
 function UserSocket(name) {
     this.name = name;
@@ -60,24 +64,19 @@ quitButton.addEventListener("click", function() {
 });
 
 function updateChat(operation, name, message) {
-    //create very top element
-    var div_node = document.createElement('div');
+    var div_node;
+    switch(operation) {
+        case 'notice':
+            div_node = chatNode.createNotice(name, message);
+            break;
+        case 'inform':
+            div_node = chatNode.createInfo(name, message);
+            break;
+        case 'chat':
+            div_node = chatNode.createChat(name, message);
+            break;
+    };
 
-    //create and add 'a' element if not notice
-    if(operation != 'notice') {
-        var a_node = document.createElement('a');
-        var name_node = document.createTextNode(name);
-        a_node.appendChild(name_node);
-        div_node.appendChild(a_node);
-    }
-
-    var chat_node = document.createTextNode(operation == 'chat' ? ': ' + message : message);
-    
-    // var a_node_attr = document.createAttribute('href');
-    // a_node_attr.value = '#';
-    // a_node.setAttributeNode(a_node_attr);
-    
-    div_node.appendChild(chat_node);
     chatLogPrint.appendChild(div_node);
     chatLogPrint.scrollTop = chatLogPrint.scrollHeight;
 	// client.destroy(); // kill client after server's response
