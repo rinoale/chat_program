@@ -1,6 +1,6 @@
 var net = require('net');
 
-var Message = require('./message.js');
+var ClientMessage = require('./messages/clientMessage.js');
 
 var ChatNode = require('./chatNode.js');
 
@@ -14,7 +14,7 @@ const chatText = document.getElementById('chat-text');
 
 const quitButton = document.getElementById('chat-quit-button')
 
-var message = new Message();
+var message = new ClientMessage();
 
 var chatNode = new ChatNode();
 
