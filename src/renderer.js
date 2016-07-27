@@ -4,7 +4,7 @@ var ClientMessage = require('./messages/clientMessage.js');
 
 var ChatNode = require('./chatNode.js');
 
-var server_address = '192.168.33.11';
+var server_address = '52.197.79.219';
 
 const chatLogPrint = document.getElementById('chat-log-print')
 
