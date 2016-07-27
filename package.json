@@ -2,7 +2,7 @@
   "name": "chat_program",
   "version": "1.0.0",
   "description": "simple chat program",
-  "main": "resources/app/main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron ."
   },

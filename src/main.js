@@ -4,6 +4,12 @@ const {app} = electron;
 // Module to create native browser window.
 const {BrowserWindow} = electron;
 
+// var path = require('path');
+// var appDir = path.dirname(require.main.filename);
+
+global.appRoot = __dirname.replace('\\src', '');
+global.resourcePath = appRoot + '\\resource'
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
