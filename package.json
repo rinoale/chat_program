@@ -2,14 +2,14 @@
   "name": "chat_program",
   "version": "1.0.0",
   "description": "simple chat program",
-  "main": "electron_quick.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "author": "rinoale",
   "license": "ISC",
   "dependencies": {
-    "editor-framework": "^0.6.1",
+    "electron-packager": "^7.3.0",
     "electron-prebuilt": "^1.2.5"
   }
 }
