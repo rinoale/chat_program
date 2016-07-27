@@ -16,8 +16,10 @@ ObjectToNode.prototype.getNode = function () {
         });
     }
 
-    text = document.createTextNode(this.text);
-    node.appendChild(text);
+    if(this.text != null) {
+        text = document.createTextNode(this.text);
+        node.appendChild(text);
+    }
 
     return node;
 }
