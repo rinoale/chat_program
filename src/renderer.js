@@ -1,12 +1,8 @@
-var net = require('net');
+var ChatNode = require('./nodes/chatNode.js');
 
-var ClientMessage = require('./messages/clientMessage.js');
+var UserNode = require('./nodes/userNode.js');
 
-var ChatNode = require('./chatNode.js');
-
-var UserNode = require('./userNode.js');
-
-var server_address = '52.197.79.219';
+var server_address = '192.168.33.11'; //aws 52.197.79.219
 
 const chatLogPrint = document.getElementById('chat-log-print')
 
@@ -18,27 +14,11 @@ const userList = document.getElementById('user-list');
 
 const quitButton = document.getElementById('chat-quit-button')
 
-var message = new ClientMessage();
-
 var chatNode = new ChatNode();
 
 var userNode = new UserNode();
 
-function UserSocket(name) {
-    this.name = name;
-}
-
-UserSocket.prototype = new net.Socket();
-
-UserSocket.prototype.sendInfo = function () {
-    message.setInfo(this.name);
-    this.write(JSON.stringify(message));
-};
-
-UserSocket.prototype.sendChat = function (chat) {
-    message.setChat(chat);
-    this.write(JSON.stringify(message));
-}
+var UserSocket = require('./sockets/userSocket.js');
 
 var client = new UserSocket('gbsong');
 
@@ -56,6 +36,7 @@ client.on('data', function(data) {
 
     if(json_data.operation == 'inform') {
         updateStatus(json_data.operation, json_data.name, json_data.message);
+        updateInfo(json_data.message);
     }
 });
 
@@ -101,6 +82,6 @@ function updateStatus(operation, name, message) {
     chatLogPrint.scrollTop = chatLogPrint.scrollHeight;
 }
 
-function updateInfo() {
-    console.log(Object.keys(message));
+function updateInfo(message) {
+    console.log(message);
 };
